@@ -51,6 +51,8 @@ namespace ASPNETCoreProject.Controllers
         public IActionResult BirimDetay(int id)
         {
             var degerler = context.Personels.Where(x => x.BirimID == id).ToList();
+            var birimAd = context.Birims.Where(x => x.BirimID == id).Select(y => y.BirimAd).FirstOrDefault();
+            ViewBag.birimAdi = birimAd;
             return View(degerler);
         }
     }
