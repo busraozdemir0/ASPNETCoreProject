@@ -1,0 +1,35 @@
+﻿@using ASPNETCoreProject.Models
+@model List<Personel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="container my-4">
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Şehir</th>
+            <th>Birim</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.PersonelID</td>
+                <td>@x.Ad</td>
+                <td>@x.Soyad</td>
+                <td>@x.Sehir</td>
+                <td>@x.Birim.BirimAd</td>
+                <td><a href="/Personel/PersonelSil/@x.PersonelID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Personel/PersonelGuncelle/@x.PersonelID" class="btn btn-success">Güncelle</a></td>
+
+            </tr>
+        }
+    </table>
+    <a href="/Personel/YeniPersonel/" class="btn btn-primary">Yeni Personel</a>
+</div>
+
