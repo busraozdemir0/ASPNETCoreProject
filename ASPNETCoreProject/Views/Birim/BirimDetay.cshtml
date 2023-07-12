@@ -1,0 +1,27 @@
+﻿@using ASPNETCoreProject.Models
+@model List<Personel>
+@{
+    ViewData["Title"] = "BirimDetay";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="container my-4">
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Şehir</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.PersonelID</td>
+                <td>@x.Ad</td>
+                <td>@x.Soyad</td>
+                <td>@x.Sehir</td>
+            </tr>
+        }
+    </table>
+</div>
+

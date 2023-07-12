@@ -48,5 +48,10 @@ namespace ASPNETCoreProject.Controllers
             context.SaveChanges();
             return RedirectToAction("Index", "Birim");
         }
+        public IActionResult BirimDetay(int id)
+        {
+            var degerler = context.Personels.Where(x => x.BirimID == id).ToList();
+            return View(degerler);
+        }
     }
 }
