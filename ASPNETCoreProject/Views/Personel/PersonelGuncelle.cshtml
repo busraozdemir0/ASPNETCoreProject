@@ -1,0 +1,25 @@
+﻿@model ASPNETCoreProject.Models.Personel
+@{
+    ViewData["Title"] = "PersonelGuncelle";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+{
+    <b>Personel ID</b>
+    @Html.TextBoxFor(x=>x.PersonelID,new{@class="form-control",@disabled = "true" })
+    <b>Personel Adı</b>
+    @Html.TextBoxFor(x=>x.Ad,new{@class="form-control"})
+    <br />
+    <b>Personel Adı</b>
+    @Html.TextBoxFor(x=>x.Soyad,new{@class="form-control"})
+    <br />
+    <b>Personel Adı</b>
+    @Html.TextBoxFor(x=>x.Sehir,new{@class="form-control"})
+    <br />
+    <b>Birim</b>
+    @Html.DropDownListFor(x=>x.Birim.BirimID,(List<SelectListItem>)ViewBag.birims, new{@class="form-control"})
+    <br />
+    <button class="btn btn-info">Personel Güncelle</button>
+}
