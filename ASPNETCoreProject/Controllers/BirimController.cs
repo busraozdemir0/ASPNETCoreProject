@@ -1,12 +1,15 @@
 ﻿using ASPNETCoreProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace ASPNETCoreProject.Controllers
 {
+    [Authorize]
     public class BirimController : Controller
     {
         Context context = new Context();
+        
         public IActionResult Index()
         {
             var birimList = context.Birims.ToList();

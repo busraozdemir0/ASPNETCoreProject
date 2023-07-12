@@ -1,4 +1,5 @@
 ﻿using ASPNETCoreProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -7,9 +8,11 @@ using System.Linq;
 
 namespace ASPNETCoreProject.Controllers
 {
+    [Authorize]
     public class PersonelController : Controller
     {
         Context context = new Context();
+        
         public IActionResult Index()
         {
             var personelList = context.Personels.Include(x=>x.Birim).ToList();
@@ -62,13 +65,14 @@ namespace ASPNETCoreProject.Controllers
         [HttpPost]
         public IActionResult PersonelGuncelle(Personel personel)
         {
-            // dropdownlistten seçilen değerin ID'sini alma (hatalı!)
+            // dropdownlistten seçilen değerin ID'sini alma
             var per = context.Birims.Where(x => x.BirimID == personel.Birim.BirimID).FirstOrDefault();
             personel.Birim = per;
 
             context.Personels.Update(personel);
             context.SaveChanges();
             return RedirectToAction("Index", "Personel");
+
         }
     }
 }
