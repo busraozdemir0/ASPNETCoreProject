@@ -1,0 +1,16 @@
+﻿@model ASPNETCoreProject.Models.Birim
+@{
+    ViewData["Title"] = "BirimGuncelle";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+@using (Html.BeginForm("BirimGuncelle", "Birim", FormMethod.Post))
+{
+        <b>Birim ID</b>
+    @Html.TextBoxFor(x=>x.BirimID,new{@class="form-control",@disabled = "true" })
+        <b>Birim Adı</b>
+    @Html.TextBoxFor(x=>x.BirimAd,new{@class="form-control"})
+        <br />
+        <button class="btn btn-info">Birim Güncelle</button>
+}
+
