@@ -11,6 +11,10 @@
         <b>Birim Adı</b>
     @Html.TextBoxFor(x=>x.BirimAd,new{@class="form-control"})
         <br />
-        <button class="btn btn-info">Birim Güncelle</button>
+        <button id="btn1" class="btn btn-info">Birim Güncelle</button>
 }
-
+<script>
+    $('#btn1').click(function () {
+        alert("Güncelleme işlemi başarıyla yapıldı.");
+    });
+</script>

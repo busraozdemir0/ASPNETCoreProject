@@ -5,7 +5,7 @@
 }
 
 <div class="my-4">
-    <form class="form-group" method="post">
+    <form class="form-group" action="YeniPersonel" controller="Personel" method="post" enctype="multipart/form-data">
         <b>Personel Adı</b>
         @Html.TextBoxFor(x=>x.Ad,new{@class="form-control"})
         <br />
@@ -18,7 +18,10 @@
         <b>Birim</b>
         @Html.DropDownListFor(x=>x.Birim.BirimID,(List<SelectListItem>)ViewBag.birims, new{@class="form-control"})
         <br />
-
+        <b>Personel Görsel</b>
+        <input type="file" name="Gorsel" />
+        <br />
+        <br />
         <button class="btn btn-info">Personel Ekle</button>
     </form>
 </div>
