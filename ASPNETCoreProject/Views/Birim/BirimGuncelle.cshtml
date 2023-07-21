@@ -1,0 +1,16 @@
+﻿@model ASPNETCoreProject.Models.Birim
+@{
+    ViewData["Title"] = "BirimGuncelle";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+<div class="container my-3">
+    @using (Html.BeginForm("BirimGuncelle", "Birim", FormMethod.Post))
+    {
+        @*@Html.HiddenFor(x=>x.BirimID,new{@class="form-control",@disabled = "true" })*@
+        <input name="BirimID" value="@Model.BirimID" type="hidden" />
+        <b>Birim Adı</b>
+        @Html.TextBoxFor(x=>x.BirimAd,new{@class="form-control"})
+        <br />
+        <button id="btn1" type="submit" class="btn btn-info">Birim Güncelle</button>
+    }
+</div>

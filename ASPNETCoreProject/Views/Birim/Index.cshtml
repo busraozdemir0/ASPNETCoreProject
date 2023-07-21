@@ -8,7 +8,7 @@
 <div class="container my-4">
     <table class="table table-hover">
         <tr>
-            <th>ID</th>
+            <th hidden>ID</th>
             <th>Departman</th>
             <th>Sil</th>
             <th>Güncelle</th>
@@ -17,7 +17,7 @@
         @foreach (var x in Model)
         {
             <tr>
-                <td>@x.BirimID</td>
+                <td hidden>@x.BirimID</td>
                 <td>@x.BirimAd</td>
                 <td><a href="/Birim/BirimSil/@x.BirimID" class="btn btn-danger">Sil</a></td>
                 <td><a href="/Birim/BirimGuncelle/@x.BirimID" class="btn btn-success">Güncelle</a></td>

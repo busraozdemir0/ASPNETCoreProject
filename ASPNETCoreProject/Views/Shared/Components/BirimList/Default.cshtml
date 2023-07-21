@@ -1,0 +1,10 @@
+﻿@model List<Birim>
+
+<div class="form-control">
+    <select name="BirimID">
+        @foreach (var i in Model)
+        {
+            <option value="@i.BirimID">@i.BirimAd</option>
+        }
+    </select>
+</div>

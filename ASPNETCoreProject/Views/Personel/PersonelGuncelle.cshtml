@@ -4,26 +4,28 @@
     Layout = "~/Views/Shared/_TestLayout.cshtml";
 }
 
+<div class="container my-3">
+    <form class="form-group" action="PersonelGuncelle" controller="Personel" method="post" enctype="multipart/form-data">
 
-<form class="form-group" action="PersonelGuncelle" controller="Personel" method="post" enctype="multipart/form-data">
-
-    <b>Personel ID</b>
-    @Html.TextBoxFor(x=>x.PersonelID,new{@class="form-control",@disabled = "true" })
-    <b>Personel Adı</b>
-    @Html.TextBoxFor(x=>x.Ad,new{@class="form-control"})
-    <br />
-    <b>Personel Soyadı</b>
-    @Html.TextBoxFor(x=>x.Soyad,new{@class="form-control"})
-    <br />
-    <b>Personelin Şehri</b>
-    @Html.TextBoxFor(x=>x.Sehir,new{@class="form-control"})
-    <br />
-    <b>Birimi</b>
-    @Html.DropDownListFor(x=>x.Birim.BirimID,(List<SelectListItem>)ViewBag.birims, new{@class="form-control"})
-    <br />
-    <b>Personel Görsel</b>
-    <input type="file" name="Gorsel" />
-    <br />
-    <br />
-    <button type="submit" class="btn btn-info">Personel Güncelle</button>
-</form>
+        @*@Html.HiddenFor(x=>x.PersonelID,new{@class="form-control",@disabled = "true" })*@
+        <input name="PersonelID" value="@Model.PersonelID" type="hidden" />
+        <b>Personel Adı</b>
+        @Html.TextBoxFor(x=>x.Ad,new{@class="form-control"})
+        <br />
+        <b>Personel Soyadı</b>
+        @Html.TextBoxFor(x=>x.Soyad,new{@class="form-control"})
+        <br />
+        <b>Personelin Şehri</b>
+        @Html.TextBoxFor(x=>x.Sehir,new{@class="form-control"})
+        <br />
+        <b>Birimi</b>
+        @await Component.InvokeAsync("BirimList")
+        @*        @Html.DropDownListFor(x=>x.Birim.BirimID,(List<SelectListItem>)ViewBag.birims, new{@class="form-control"})
+        *@        <br />
+        <b>Personel Görsel</b>
+        <input type="file" name="Gorsel" />
+        <br />
+        <br />
+        <button type="submit" class="btn btn-info">Personel Güncelle</button>
+    </form>
+</div>

@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_TestLayout.cshtml";
 }
 
-<div class="my-4">
+<div class="my-4 container">
     <form class="form-group" action="YeniPersonel" controller="Personel" method="post" enctype="multipart/form-data">
         <b>Personel Adı</b>
         @Html.TextBoxFor(x=>x.Ad,new{@class="form-control"})

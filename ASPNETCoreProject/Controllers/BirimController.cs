@@ -34,21 +34,18 @@ namespace ASPNETCoreProject.Controllers
             context.SaveChanges();
             return RedirectToAction("Index", "Birim");
         }
-        public IActionResult BirimGetir(int id)
+        [HttpGet]
+        public IActionResult BirimGuncelle(int id)
         {
             var birimBul = context.Birims.Find(id);
-            return View("BirimGetir",birimBul);
+            return View(birimBul);
         }
+        [HttpPost]
         public IActionResult BirimGuncelle(Birim birim)
         {
-            var brm = context.Birims.Find(birim.BirimID);
-            brm.BirimAd = birim.BirimAd;
+            context.Birims.Update(birim);
             context.SaveChanges();
             return RedirectToAction("Index", "Birim");
-
-            //context.Birims.Update(birim);
-            //context.SaveChanges();
-            //return RedirectToAction("Index", "Birim");
         }
         public IActionResult BirimDetay(int id)
         {

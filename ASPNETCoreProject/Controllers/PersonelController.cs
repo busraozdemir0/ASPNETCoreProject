@@ -84,7 +84,7 @@ namespace ASPNETCoreProject.Controllers
         public async Task<IActionResult> PersonelGuncelle(Personel personel)
         {
             // dropdownlistten seçilen değerin ID'sini alma
-            var per = context.Birims.Where(x => x.BirimID == personel.Birim.BirimID).FirstOrDefault();
+            var per = context.Birims.Where(x => x.BirimID == personel.BirimID).FirstOrDefault();
             personel.Birim = per;
             if (ModelState.IsValid)
             {
